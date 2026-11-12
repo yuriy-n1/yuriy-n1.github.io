@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YURIY NEYRA ALVARADO // CYBERNETIC DOSSIER [yuriy-n1]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="crt-enabled">
+  <!-- Background Cyber Canvas -->
+  <canvas id="cyber-canvas" aria-hidden="true"></canvas>
+
+  <!-- CRT Scanline & Vignette Overlay -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- Top System HUD & Navigation -->
+  <header class="hud-header">
+    <div class="hud-container">
+      <div class="hud-brand">
+        <span class="status-dot pulse"></span>
+        <a href="#top" class="brand-logo" data-text="SYS://YURIY-N1">SYS://YURIY-N1</a>
+        <span class="hud-tag">CO-OP // SUMMER 2027</span>
+      </div>
+
+      <nav class="hud-nav" aria-label="Primary Navigation">
+        <a href="#contact-top" class="nav-link"><span class="nav-idx">00.</span>UPLINK</a>
+        <a href="#experience" class="nav-link"><span class="nav-idx">01.</span>EXPERIENCE</a>
+        <a href="#education" class="nav-link"><span class="nav-idx">02.</span>EDUCATION</a>
+        <a href="#interests" class="nav-link"><span class="nav-idx">03.</span>INTERESTS</a>
+        <a href="#aspirations" class="nav-link"><span class="nav-idx">04.</span>ASPIRATIONS</a>
+        <a href="#contact-bottom" class="nav-link"><span class="nav-idx">05.</span>TRANSMIT</a>
+      </nav>
+
+      <div class="hud-controls">
+        <button id="toggle-crt" class="cyber-btn-sm" title="Toggle CRT Scanlines" aria-pressed="true">
+          CRT: <span id="crt-state">ON</span>
+        </button>
+        <span id="sys-clock" class="sys-clock">00:00:00 UTC</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="main-wrapper">
+    <!-- HERO SECTION + TOP CONTACT -->
+    <section class="hero-section section-block" id="contact-top">
+      <div class="terminal-window hero-terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">root@uottawa-node:~# ./init_dossier.sh --operative="Yuriy Neyra Alvarado"</div>
+          <div class="terminal-meta">TARGET: SUMMER 2027 CO-OP</div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="hero-grid">
+            <div class="hero-Main">
+              <div class="cyber-badge">UOTTAWA SOFTWARE ENGINEERING // SEEKING SUMMER 2027 CO-OP</div>
+              <h1 class="glitch-title" data-text="YURIY NEYRA ALVARADO">YURIY NEYRA ALVARADO</h1>
+              <div class="typing-line">
+                <span class="prompt-symbol">&gt;</span>
+                <span id="typewriter" class="typewriter-text">Aspiring Software Developer | B.A.Sc. Software Engineering @ uOttawa</span>
+                <span class="cursor">_</span>
+              </div>
+
+              <p class="hero-bio">
+                Welcome to my digital dossier. I am an aspiring Software Developer studying <strong>Software Engineering at the University of Ottawa</strong> (Merivale High School alumnus &amp; TDSB ICS3U/4U graduate), actively seeking a <strong>Summer 2027 Co-op term</strong>. From building object-oriented financial GUI suites in Java (<strong>FundSave</strong>) to prototyping futuristic space-healthcare apps in Kotlin (<strong>LifeRing</strong>), I thrive on collaborative engineering and clean system design.
+              </p>
+
+              <!-- TOP CONTACT / DIRECT UPLINK BAR -->
+              <div class="top-contact-panel">
+                <div class="panel-header">
+                  <span class="panel-icon">⚡</span>
+                  <span>DIRECT UPLINK // TOP CONTACT CHANNELS</span>
+                  <span class="panel-line"></span>
+                </div>
+                <div class="contact-chips">
+                  <a href="https://www.linkedin.com/in/yuriy-neyra-alvarado" target="_blank" rel="noopener noreferrer" class="cyber-chip chip-purple">
+                    <span class="chip-prefix">[IN]</span> linkedin.com/in/yuriy-neyra-alvarado
+                  </a>
+                  <a href="mailto:neyra.yuriy@gmail.com" class="cyber-chip chip-green">
+                    <span class="chip-prefix">[GMAIL]</span> neyra.yuriy@gmail.com
+                  </a>
+                  <a href="mailto:yneyr092@uottawa.ca" class="cyber-chip chip-cyan">
+                    <span class="chip-prefix">[UOTTAWA]</span> yneyr092@uottawa.ca
+                  </a>
+                  <a href="https://github.com/yuriy-n1" target="_blank" rel="noopener noreferrer" class="cyber-chip chip-amber">
+                    <span class="chip-prefix">[GH]</span> github.com/yuriy-n1
+                  </a>
+                  <button type="button" class="cyber-chip chip-pink copy-btn" data-copy="neyra.yuriy@gmail.com">
+                    <span class="chip-prefix">[COPY]</span> <span class="copy-label">Copy Personal Email</span>
+                  </button>
+                  <button type="button" class="cyber-chip chip-pink copy-btn" data-copy="yneyr092@uottawa.ca">
+                    <span class="chip-prefix">[COPY]</span> <span class="copy-label">Copy uOttawa Email</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side Cyber Avatar / System Diagnostics Card -->
+            <aside class="hero-telemetry">
+              <div class="telemetry-card">
+                <div class="holo-frame">
+                  <div class="holo-scan"></div>
+                  <pre class="ascii-art" aria-hidden="true">
+   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+ ▄█░░░░░░░░░░░░░░░█▄
+█░░░▀▀▀░░░░░░░▀▀▀░░░█
+█░░░███░░░░░░░███░░░█
+█░░░░░░░░░▄░░░░░░░░░█
+ ▀█░░░░░▀▀▀▀▀░░░░░█▀
+   ▀▀███████████▀▀
+  [ NODE: YURIY-N1 ]
+                  </pre>
+                </div>
+                <ul class="telemetry-stats">
+                  <li>
+                    <span class="stat-label">STATUS</span>
+                    <span class="stat-val text-green">SEEKING SUMMER 2027 CO-OP</span>
+                  </li>
+                  <li>
+                    <span class="stat-label">PROGRAM</span>
+                    <span class="stat-val text-cyan">B.A.Sc. Software Eng @ uOttawa</span>
+                  </li>
+                  <li>
+                    <span class="stat-label">ALMA MATER</span>
+                    <span class="stat-val text-purple">Merivale HS &amp; TDSB (ICS3U/4U)</span>
+                  </li>
+                  <li>
+                    <span class="stat-label">CORE STACK</span>
+                    <span class="stat-val">Java • Python • Kotlin • Web</span>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 // EXPERIENCE & ENGINEERING PROJECTS SECTION -->
+    <section class="section-block reveal" id="experience">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <h2 class="section-title" data-text="EXPERIENCE_&_PROJECTS">EXPERIENCE_&_PROJECTS</h2>
+        <div class="section-rule"></div>
+        <span class="section-code">SYS.LOG // COLLABORATIVE_ENGINEERING</span>
+      </div>
+
+      <div class="timeline">
+        <!-- Experience Item 1: FundSave -->
+        <article class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="cyber-card">
+            <div class="card-header">
+              <div>
+                <span class="role-badge badge-green">FEATURED TEAM PROJECT // JAVA OOP &amp; SWING</span>
+                <h3 class="card-title">Co-Developer — FundSave Financial &amp; Investment GUI Suite</h3>
+                <p class="card-org">// ICS4U Culminating Team Collaboration (with Jordan Lin &amp; Alok Mantri) • TDSB</p>
+              </div>
+              <div class="card-date">AUG 2025 // JAVA</div>
+            </div>
+            <p class="card-desc">
+              Collaborated in a 3-person software engineering team to design and build <strong>FundSave</strong>, a desktop financial management and investment analysis application in Java empowering young adults to track budgets, savings goals, and multi-asset portfolios.
+            </p>
+            <ul class="cyber-list">
+              <li>
+                <strong>Polymorphic Asset Hierarchy (`Investments.java`):</strong> Engineered an abstract <code>Investments</code> superclass extended by specialized subclasses (<code>Stock</code>, <code>Bond</code>, <code>Crypto</code>, <code>GIC</code>) stored in a 2D <code>ArrayList&lt;ArrayList&lt;Investments&gt;&gt;</code> structure, implementing quantitative methods including <code>calculateSharpRatio()</code> <code>((Expected Return - Risk-Free Rate) / &sigma;)</code> and risk-level classification.
+              </li>
+              <li>
+                <strong>Budget &amp; Goal Tracking Subsystem (`Tracker.java` &amp; `TrackerScreen.java`):</strong> Built a custom financial goal tracker tracking target vs. current amounts with custom comma-delimited string parsing (<code>stringSet</code> / <code>doubleSet</code>) and interactive Swing form validation with <code>NumberFormatException</code> safeguards.
+              </li>
+              <li>
+                <strong>Multi-Screen Java Swing GUI (`WelcomeScreen`, `InvestmentScreen`, `AddStock`/`AddBond`/`AddCrypto`/`AddGic`):</strong> Designed event-driven <code>JFrame</code>/<code>JPanel</code> interfaces using <code>ActionListener</code> navigation, CUSIP lookup workflows, and reset/confirmation dialogs.
+              </li>
+              <li>
+                <strong>Persistent File I/O &amp; Algorithmic Utilities (`HandlingFiles.java` &amp; `Tools.java`):</strong> Implemented session persistence across <code>userdata.txt</code> and <code>user.txt</code> using <code>JFileChooser</code>, <code>BufferedReader</code>, and <code>BufferedWriter</code>, alongside recursive randomized-pivot <code>quickSort</code> routines for ascending/descending dataset ordering.
+              </li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Java Swing (GUI)</span>
+              <span class="tag">OOP (Inheritance &amp; Polymorphism)</span>
+              <span class="tag">Java File I/O</span>
+              <span class="tag">2D ArrayLists</span>
+              <span class="tag">QuickSort Recursion</span>
+              <a href="https://github.com/Jordanbr2/FundSave-GUI-Program" target="_blank" rel="noopener noreferrer" class="tag" style="text-decoration:none; border-color: var(--neon-green); color: var(--neon-green);">[View Repo ↗]</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Experience Item 2: LifeRing (Liftoff Hackathon) -->
+        <article class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="cyber-card">
+            <div class="card-header">
+              <div>
+                <span class="role-badge badge-cyan">HACKATHON PROTOTYPE // NOKIA &amp; THALES SPONSORED</span>
+                <h3 class="card-title">Co-Creator — LifeRing (Space Healthcare Telemetry App)</h3>
+                <p class="card-org">// Liftoff Hackathon (with Taras Vakulenko)</p>
+              </div>
+              <div class="card-date">HACKATHON // KOTLIN</div>
+            </div>
+            <p class="card-desc">
+              Developed and pitched a futuristic space-healthcare mobile application addressing astronaut health monitoring and diagnostic presentation during deep-space travel.
+            </p>
+            <ul class="cyber-list">
+              <li>Designed a dual-mode interface switching seamlessly between a streamlined <strong>User Mode</strong> (personal health &amp; risk awareness) and a quantitative <strong>Analytical Mode</strong> for medical professionals.</li>
+              <li>Simulated live wireless health telemetry by pinging a secondary device over a local network to stream real-time biometric status updates.</li>
+              <li>Constructed the mobile implementation in <strong>Kotlin</strong> under tight hackathon constraints and delivered a live pitch that earned strong positive feedback from Nokia and Thales judges.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Android APK</span>
+              <span class="tag">Network Telemetry Pings</span>
+              <span class="tag">UI/UX Prototyping</span>
+              <span class="tag">Team Pitching</span>
+              <a href="https://github.com/yuriy-n1/Liftoff" target="_blank" rel="noopener noreferrer" class="tag" style="text-decoration:none; border-color: var(--neon-cyan); color: var(--neon-cyan);">[View Repo ↗]</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Experience Item 3: University of Ottawa Coursework & Labs -->
+        <article class="timeline-node">
+          <div class="node-marker"></div>
+          <div class="cyber-card">
+            <div class="card-header">
+              <div>
+                <span class="role-badge badge-purple">UNIVERSITY ENGINEERING LABS</span>
+                <h3 class="card-title">Software Engineering Student Developer</h3>
+                <p class="card-org">// University of Ottawa (uOttawa) • Faculty of Engineering</p>
+              </div>
+              <div class="card-date">CURRENT // PYTHON &amp; JAVA</div>
+            </div>
+            <p class="card-desc">
+              Completing rigorous undergraduate Software Engineering coursework and programming assignments (such as <code>ITI 1520</code> Introduction to Computing) focused on algorithmic problem-solving, clean code documentation, and version control.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">Algorithmic Design</span>
+              <span class="tag">Git / GitHub</span>
+              <a href="https://github.com/yuriy-n1/ITI1520-Devoir4" target="_blank" rel="noopener noreferrer" class="tag" style="text-decoration:none; border-color: var(--neon-purple); color: #e09eff;">[ITI1520 Repo ↗]</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02 // EDUCATION SECTION -->
+    <section class="section-block reveal" id="education">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <h2 class="section-title" data-text="PREVIOUS_&_CURRENT_EDUCATION">PREVIOUS_&_CURRENT_EDUCATION</h2>
+        <div class="section-rule"></div>
+        <span class="section-code">DB.QUERY // ACADEMIC_RECORDS</span>
+      </div>
+
+      <div class="cards-grid two-col">
+        <!-- University of Ottawa -->
+        <article class="cyber-card edu-card">
+          <div class="card-header">
+            <div>
+              <span class="role-badge badge-green">UNIVERSITY // CURRENT</span>
+              <h3 class="card-title">B.A.Sc. in Software Engineering</h3>
+              <p class="card-org">// University of Ottawa (uOttawa) — Ottawa, ON</p>
+            </div>
+            <div class="card-date">CO-OP TARGET: SUMMER 2027</div>
+          </div>
+          <p class="card-desc">
+            Pursuing an undergraduate degree in Software Engineering at the University of Ottawa, building a strong foundation in software architecture, computing fundamentals, engineering mathematics, and collaborative development.
+          </p>
+          <div class="sub-panel">
+            <div class="sub-panel-title">&gt; CORE_FOCUS_AREAS:</div>
+            <div class="tech-tags">
+              <span class="tag">Software Engineering Principles</span>
+              <span class="tag">Introduction to Computing (Python / Java)</span>
+              <span class="tag">Object-Oriented Design</span>
+              <span class="tag">Data Structures &amp; Algorithms</span>
+              <span class="tag">Discrete Mathematics</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- High School: Merivale HS & TDSB ICS3U/4U -->
+        <article class="cyber-card edu-card">
+          <div class="card-header">
+            <div>
+              <span class="role-badge badge-cyan">SECONDARY // CS FOUNDATION</span>
+              <h3 class="card-title">Merivale High School &amp; TDSB (ICS3U / ICS4U)</h3>
+              <p class="card-org">// Merivale High School (Ottawa) &amp; Toronto District School Board</p>
+            </div>
+            <div class="card-date">GRADUATED</div>
+          </div>
+          <p class="card-desc">
+            Graduated from <strong>Merivale High School</strong> while completing both <strong>ICS3U</strong> (Grade 11 Introduction to Computer Science) and <strong>ICS4U</strong> (Grade 12 Computer Science) through the <strong>Toronto District School Board (TDSB)</strong>.
+          </p>
+          <div class="sub-panel">
+            <div class="sub-panel-title">&gt; ICS3U &amp; ICS4U TECHNICAL MASTERY:</div>
+            <ul class="cyber-list compact">
+              <li><strong>Java Object-Oriented Programming:</strong> Encapsulation, inheritance, abstract classes, method overriding, and polymorphism.</li>
+              <li><strong>Algorithms &amp; Data Structures:</strong> 1D/2D arrays, <code>ArrayList</code> collections, recursion, QuickSort, and search routines.</li>
+              <li><strong>GUI &amp; File I/O Engineering:</strong> Event-driven Java Swing interfaces and persistent file serialization (`BufferedReader`/`BufferedWriter`).</li>
+              <li><strong>Team Software Engineering:</strong> Co-built the <em>FundSave</em> financial desktop suite using collaborative Git workflows and feasibility documentation.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 // INTERESTS SECTION -->
+    <section class="section-block reveal" id="interests">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <h2 class="section-title" data-text="NEURAL_INTERESTS">NEURAL_INTERESTS</h2>
+        <div class="section-rule"></div>
+        <span class="section-code">CORE.SUBSYSTEMS // PASSIONS</span>
+      </div>
+
+      <div class="cards-grid four-col">
+        <article class="cyber-card interest-card">
+          <div class="interest-icon">[OOP // SYS]</div>
+          <h3 class="card-title">Software Architecture &amp; OOP</h3>
+          <p class="card-desc">
+            Designing modular, extensible object-oriented applications in Java, Python, and Kotlin that solve tangible everyday problems.
+          </p>
+          <div class="Diagnostic-bar"><span style="width: 95%"></span></div>
+        </article>
+
+        <article class="cyber-card interest-card">
+          <div class="interest-icon">[FIN // TECH]</div>
+          <h3 class="card-title">FinTech &amp; Quantitative Tools</h3>
+          <p class="card-desc">
+            Building personal finance trackers, portfolio analytics (such as Sharpe ratio &amp; risk modeling in <em>FundSave</em>), and accessible money-management tools.
+          </p>
+          <div class="Diagnostic-bar"><span style="width: 90%"></span></div>
+        </article>
+
+        <article class="cyber-card interest-card">
+          <div class="interest-icon">[HACK // UI]</div>
+          <h3 class="card-title">Hackathons &amp; Futuristic Tech</h3>
+          <p class="card-desc">
+            Rapid prototyping at hackathons (like <em>LifeRing</em> for space healthcare), exploring AI-assisted workflows, and crafting dark cyberpunk interfaces.
+          </p>
+          <div class="Diagnostic-bar"><span style="width: 92%"></span></div>
+        </article>
+
+        <article class="cyber-card interest-card">
+          <div class="interest-icon">[WEB // AI]</div>
+          <h3 class="card-title">Full-Stack Web &amp; Emerging AI</h3>
+          <p class="card-desc">
+            Expanding across full-stack web engineering, networked systems, cybersecurity fundamentals, and modern developer tooling.
+          </p>
+          <div class="Diagnostic-bar"><span style="width: 88%"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 04 // ASPIRATIONS SECTION -->
+    <section class="section-block reveal" id="aspirations">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <h2 class="section-title" data-text="FUTURE_ASPIRATIONS">FUTURE_ASPIRATIONS</h2>
+        <div class="section-rule"></div>
+        <span class="section-code">ROADMAP // DIRECTIVES</span>
+      </div>
+
+      <div class="aspirations-container cyber-card">
+        <div class="aspirations-intro">
+          <p class="terminal-quote">
+            <span class="text-cyan">&gt; MISSION STATEMENT:</span> As a Software Engineering student at the University of Ottawa, my primary objective is to grow into a versatile, high-impact software developer—combining strong object-oriented fundamentals and team collaboration to ship reliable, user-focused software during my <strong>Summer 2027 Co-op term</strong> and beyond.
+          </p>
+        </div>
+
+        <div class="directives-grid">
+          <div class="directive-item">
+            <div class="directive-head">
+              <span class="directive-id">DIR_01 // PRIMARY</span>
+              <span class="directive-status text-green">ACTIVE TARGET</span>
+            </div>
+            <h4>Secure Summer 2027 Software Developer Co-op</h4>
+            <p>Join an ambitious engineering team for <strong>Summer 2027</strong> where I can contribute to production back-end, full-stack, or mobile/desktop systems, learn industry best practices, and deliver measurable value.</p>
+            <div class="progress-track">
+              <div class="progress-fill fill-green" style="width: 85%"></div>
+            </div>
+          </div>
+
+          <div class="directive-item">
+            <div class="directive-head">
+              <span class="directive-id">DIR_02 // GROWTH</span>
+              <span class="directive-status text-cyan">IN PROGRESS</span>
+            </div>
+            <h4>Expand Full-Stack &amp; Cloud Engineering</h4>
+            <p>Build upon my Java, Python, and Kotlin foundation by mastering modern web frameworks, relational databases, RESTful APIs, and automated testing pipelines at uOttawa and in personal projects.</p>
+            <div class="progress-track">
+              <div class="progress-fill fill-cyan" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="directive-item">
+            <div class="directive-head">
+              <span class="directive-id">DIR_03 // IMPACT</span>
+              <span class="directive-status text-purple">LONG-TERM VECTOR</span>
+            </div>
+            <h4>Collaborate on High-Impact Products &amp; Hackathons</h4>
+            <p>Continue competing in hackathons, shipping open-source repositories under <code>yuriy-n1</code>, and engineering software that bridges complex data with intuitive human interfaces.</p>
+            <div class="progress-track">
+              <div class="progress-fill fill-purple" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 // BOTTOM CONTACT & INTERACTIVE TERMINAL SECTION -->
+    <section class="section-block reveal" id="contact-bottom">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <h2 class="section-title" data-text="ESTABLISH_CONNECTION">ESTABLISH_CONNECTION</h2>
+        <div class="section-rule"></div>
+        <span class="section-code">PORT: 443 // ENCRYPTED_COMMS</span>
+      </div>
+
+      <div class="contact-bottom-grid">
+        <!-- Left: Direct Channels -->
+        <div class="cyber-card contact-channels-card">
+          <h3 class="card-title">TRANSMISSION CHANNELS</h3>
+          <p class="card-desc">
+            Recruiting for <strong>Summer 2027 Software Engineering Co-op</strong> roles, looking for a hackathon teammate, or interested in chatting about tech? Connect with me directly:
+          </p>
+
+          <div class="channel-list">
+            <a href="https://www.linkedin.com/in/yuriy-neyra-alvarado" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <span class="channel-code">01 // LINKEDIN</span>
+              <span class="channel-val">linkedin.com/in/yuriy-neyra-alvarado</span>
+              <span class="channel-arrow">↗</span>
+            </a>
+
+            <a href="mailto:neyra.yuriy@gmail.com" class="channel-row">
+              <span class="channel-code">02 // PERSONAL EMAIL</span>
+              <span class="channel-val">neyra.yuriy@gmail.com</span>
+              <span class="channel-arrow">✉</span>
+            </a>
+
+            <a href="mailto:yneyr092@uottawa.ca" class="channel-row">
+              <span class="channel-code">03 // UOTTAWA EMAIL</span>
+              <span class="channel-val">yneyr092@uottawa.ca</span>
+              <span class="channel-arrow">✉</span>
+            </a>
+
+            <a href="https://github.com/yuriy-n1" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <span class="channel-code">04 // GITHUB</span>
+              <span class="channel-val">github.com/yuriy-n1</span>
+              <span class="channel-arrow">↗</span>
+            </a>
+          </div>
+
+          <div class="terminal-cli-box">
+            <div class="cli-label">INTERACTIVE SHELL // TRY COMMANDS: <code>help</code>, <code>whoami</code>, <code>fundsave</code>, <code>education</code>, <code>coop</code>, <code>contact</code>, <code>clear</code></div>
+            <div id="cli-output" class="cli-output">
+              <div><span class="text-green">yuriy@uottawa:~$</span> System ready. Type a command below and press Enter.</div>
+            </div>
+            <form id="cli-form" class="cli-input-row" autocomplete="off">
+              <span class="cli-prompt">yuriy@uottawa:~$</span>
+              <input type="text" id="cli-input" placeholder="type 'help' or 'fundsave' and hit Enter..." aria-label="Terminal command input" />
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Comms Transmission Form -->
+        <div class="cyber-card contact-form-card">
+          <h3 class="card-title">SEND_TRANSMISSION.EXE</h3>
+          <p class="card-desc">
+            Dispatch a direct packet to my inbox (<code>neyra.yuriy@gmail.com</code>). Fill out the payload fields below:
+          </p>
+
+          <form id="transmission-form" class="cyber-form">
+            <div class="form-group">
+              <label for="sender-name">OPERATIVE_ID (NAME)</label>
+              <input type="text" id="sender-name" name="name" required placeholder="e.g. Recruiter / Fellow Developer" />
+            </div>
+
+            <div class="form-group">
+              <label for="sender-email">RETURN_VECTOR (EMAIL)</label>
+              <input type="email" id="sender-email" name="email" required placeholder="operative@company.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="sender-subject">PACKET_HEADER (SUBJECT)</label>
+              <input type="text" id="sender-subject" name="subject" required placeholder="Summer 2027 Co-op // Project Collaboration" />
+            </div>
+
+            <div class="form-group">
+              <label for="sender-message">ENCRYPTED_PAYLOAD (MESSAGE)</label>
+              <textarea id="sender-message" name="message" rows="4" required placeholder="Enter transmission details..."></textarea>
+            </div>
+
+            <button type="submit" class="cyber-btn-primary">
+              <span class="btn-glitch-text">[ TRANSMIT PACKET ]</span>
+            </button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cyber-footer">
+    <div class="footer-inner">
+      <div>
+        <span class="text-green">●</span> OPERATIVE: <strong>YURIY NEYRA ALVARADO (YURIY-N1)</strong> // UOTTAWA SOFTWARE ENGINEERING
+      </div>
+      <div class="footer-links">
+        <a href="#top">BACK_TO_TOP ↑</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/yuriy-neyra-alvarado" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+        <span>|</span>
+        <a href="https://github.com/yuriy-n1" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        <span>|</span>
+        <a href="#contact-top">TOP_CONTACT</a>
+      </div>
+      <div class="footer-copy">
+        &copy; <span id="year">2026</span> YURIY NEYRA ALVARADO // CYBERPUNK_DOSSIER
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
